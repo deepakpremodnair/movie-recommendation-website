@@ -39,6 +39,7 @@ def show_about():
 # Function to display the My List page with movie cards
 def show_my_list():
     st.markdown("<h2 style='text-align: center;'>My List</h2>", unsafe_allow_html=True)
+<<<<<<< HEAD
     genre = st.text_input("Genre", "")
     release_date = st.date_input("Release Date")
 
@@ -53,6 +54,11 @@ def show_my_list():
             
     # Example movie data (replace with actual data as needed)
     my_movies = [
+=======
+    
+    # Example movie data 
+    movies = [
+>>>>>>> 4a80705d75cd3a2f4e739d1bd0bbc1430c3246d0
         {"title": "Movie 1", "rating": 8.5, "image": "https://via.placeholder.com/150"},
         {"title": "Movie 2", "rating": 7.0, "image": "https://via.placeholder.com/150"},
         {"title": "Movie 3", "rating": 9.0, "image": "https://via.placeholder.com/150"},
@@ -66,9 +72,15 @@ def show_my_list():
     ]
 
     # Create 4 columns for the cards
+<<<<<<< HEAD
     cols = st.columns(3)  
     for index, my_movie in enumerate(my_movies):
         with cols[index % 3]:  # Use modulo to alternate columns
+=======
+    cols = st.columns(4)  
+    for index, movie in enumerate(movies):
+        with cols[index % 4]: 
+>>>>>>> 4a80705d75cd3a2f4e739d1bd0bbc1430c3246d0
             st.markdown(f"""
                 <div style='border: 1px solid #ddd; border-radius: 5px; margin: 20px; width: auto; display: flex; flex-direction: column; align-items: center;'>
                     <div style='width: 100%;'>
