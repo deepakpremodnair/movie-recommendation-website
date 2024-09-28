@@ -39,9 +39,20 @@ def show_about():
 # Function to display the My List page with movie cards
 def show_my_list():
     st.markdown("<h2 style='text-align: center;'>My List</h2>", unsafe_allow_html=True)
-    
+    genre = st.text_input("Genre", "")
+    release_date = st.date_input("Release Date")
+
+    # Rating slider (1.0 to 10.0 with one decimal place)
+    rating = st.slider("Rate (1.0 - 10.0)", min_value=1.0, max_value=10.0, value=5.0, step=0.1)
+
+    # Made three columns to center the button
+    col1, col2, col3 = st.columns([1, 0.4, 1])
+    with col2:
+        if st.button("Submit"):
+            pass
+            
     # Example movie data (replace with actual data as needed)
-    movies = [
+    my_movies = [
         {"title": "Movie 1", "rating": 8.5, "image": "https://via.placeholder.com/150"},
         {"title": "Movie 2", "rating": 7.0, "image": "https://via.placeholder.com/150"},
         {"title": "Movie 3", "rating": 9.0, "image": "https://via.placeholder.com/150"},
@@ -55,17 +66,17 @@ def show_my_list():
     ]
 
     # Create 4 columns for the cards
-    cols = st.columns(4)  
-    for index, movie in enumerate(movies):
-        with cols[index % 4]:  # Use modulo to alternate columns
+    cols = st.columns(3)  
+    for index, my_movie in enumerate(my_movies):
+        with cols[index % 3]:  # Use modulo to alternate columns
             st.markdown(f"""
-                <div style='border: 1px solid #ddd; border-radius: 5px; margin: 20px; width: 100%; display: flex; flex-direction: column; align-items: center;'>
+                <div style='border: 1px solid #ddd; border-radius: 5px; margin: 20px; width: auto; display: flex; flex-direction: column; align-items: center;'>
                     <div style='width: 100%;'>
-                        <img src='{movie["image"]}' style='width: 100%; height: auto; object-fit: cover; border-top-left-radius: 5px; border-top-right-radius: 5px;'>
+                        <img src='{my_movie["image"]}' style='width: 100%; height: auto; object-fit: cover; border-top-left-radius: 5px; border-top-right-radius: 5px;'>
                     </div>
                     <div style='padding: 10px; text-align: center;'>
-                        <h4 style='margin: 0;'>{movie["title"]}</h4>
-                        <p style='margin: 0;'>Rating: {movie["rating"]}</p>
+                        <h4 style='margin: 0;'>{my_movie["title"]}</h4>
+                        <p style='margin: 0;'>Rating: {my_movie["rating"]}</p>
                     </div>
                 </div>
             """, unsafe_allow_html=True)
