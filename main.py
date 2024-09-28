@@ -40,7 +40,7 @@ def show_about():
 def show_my_list():
     st.markdown("<h2 style='text-align: center;'>My List</h2>", unsafe_allow_html=True)
     
-    # Example movie data (replace with actual data as needed)
+    # Example movie data 
     movies = [
         {"title": "Movie 1", "rating": 8.5, "image": "https://via.placeholder.com/150"},
         {"title": "Movie 2", "rating": 7.0, "image": "https://via.placeholder.com/150"},
@@ -57,7 +57,7 @@ def show_my_list():
     # Create 4 columns for the cards
     cols = st.columns(4)  
     for index, movie in enumerate(movies):
-        with cols[index % 4]:  # Use modulo to alternate columns
+        with cols[index % 4]: 
             st.markdown(f"""
                 <div style='border: 1px solid #ddd; border-radius: 5px; margin: 20px; width: 100%; display: flex; flex-direction: column; align-items: center;'>
                     <div style='width: 100%;'>
